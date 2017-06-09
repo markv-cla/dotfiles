@@ -15,6 +15,9 @@ export EDITOR="vim"
 # write bash history out every time we display a prompt
 export PROMPT_COMMAND='history -a'
 
+# add timestamp to bash_history
+export HISTTIMEFORMAT="%d/%m/%y %T "
+
 # User specific aliases and functions
 
 # .bash_aliases
