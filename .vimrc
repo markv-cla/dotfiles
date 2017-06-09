@@ -29,6 +29,8 @@ if has("autocmd")
   augroup END
 endif
 
+
+
 if has("cscope") && filereadable("/usr/bin/cscope")
    set csprg=/usr/bin/cscope
    set csto=0
@@ -51,7 +53,30 @@ if &t_Co > 2 || has("gui_running")
   set hlsearch
 endif
 
-filetype plugin indent on
+" turn on relative line numbering
+set relativenumber
+
+" toggle relative/absolute line numbering with CTRL-n
+function! NumberToggle()
+    if(&nu == 1)
+        set nu!
+        set rnu
+    else
+        set nornu
+        set nu
+    endif
+endfunction
+
+nnoremap <C-n> :call NumberToggle()<CR>
+
+
+" try to recognize the type of the file and set the 'filetype' option
+filetype on
+" try to load plugin file for detected file type
+filetype plugin on
+" try to load indent file for detected file type
+filetype indent on
+
 
 " show existing tab with 4 spaces width
 set tabstop=2
