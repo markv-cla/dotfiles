@@ -31,4 +31,16 @@ if [ -f ~/.bash_functions ]; then
 fi
 
 
+# prompt
+if [ -f ~/.bash_prompt ]; then
+	. ~/.bash_prompt
+fi
+
+
+
+# add autocomplete for hosts found in known_hosts file
+complete -W "$(echo `cat ~/.ssh/known_hosts | cut -f 1 -d ' ' | sed -e s/,.*//g | uniq | grep -v "\["`;)" r
+complete -W "$(echo `cat ~/.ssh/known_hosts | cut -f 1 -d ' ' | sed -e s/,.*//g | uniq | grep -v "\["`;)" t
+complete -W "$(echo `cat ~/.ssh/known_hosts | cut -f 1 -d ' ' | sed -e s/,.*//g | uniq | grep -v "\["`;)" s
+
 
