@@ -6,8 +6,8 @@ set nocompatible              " Use Vim defaults (much better!)
 set bs=indent,eol,start       " allow backspacing over everything in insert mode
 "set ai                       " always set autoindenting on
 "set backup                   " keep a backup file
-set backupdir=~/.vimtmp    " tell vim where to put its backup files
-set dir=~/.vimtmp          " tell vim where to put swap files
+set backupdir=~/.vimtmp       " tell vim where to put its backup files
+set dir=~/.vimtmp             " tell vim where to put swap files
 set viminfo='20,\"50          " read/write a .viminfo file, don't store more
                               " than 50 lines of registers
 set history=50                " keep 50 lines of command line history
@@ -80,7 +80,7 @@ filetype plugin on
 filetype indent on
 
 
-" show existing tab with 4 spaces width
+" show existing tab with 2 spaces width
 set tabstop=2
 " when indenting with '>', use 4 spaces width
 set shiftwidth=2
@@ -88,7 +88,8 @@ set shiftwidth=2
 set expandtab
 
 
-
+" Most color xterms have only eight colors.  
+" If you don't get colors with the default setup, this may fix things
 if &term=="xterm"
      set t_Co=8
      set t_Sb=ESC[4%dm
