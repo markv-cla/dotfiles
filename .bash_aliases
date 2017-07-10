@@ -2,6 +2,8 @@
 
 # .bash_aliases
 
+[[ $- == *i* ]] && echo "> ${BASH_SOURCE[0]}"
+
 # User specific aliases and functions
 alias listaliases="alias | sed 's/=.*//'"
 alias listfunctions="declare -f | grep '^[a-z].* ()' | sed 's/{$//'" # show non _prefixed functions
@@ -25,3 +27,6 @@ alias quit="exit"
 alias week="date +%V"
 
 alias path='echo -e ${PATH//:/\\n}'
+
+
+[[ $- == *i* ]] && echo "< ${BASH_SOURCE[0]}"

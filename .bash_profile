@@ -1,5 +1,7 @@
 # .bash_profile
 
+[[ $- == *i* ]] && echo "> ${BASH_SOURCE[0]}"
+
 # Get the aliases and functions
 if [ -f ~/.bashrc ]; then
 	. ~/.bashrc
@@ -10,3 +12,9 @@ fi
 PATH=$PATH:$HOME/.local/bin:$HOME/bin
 
 export PATH
+
+# switch to ~/Documents
+cd ~/Documents
+
+
+[[ $- == *i* ]] && echo "< ${BASH_SOURCE[0]}"

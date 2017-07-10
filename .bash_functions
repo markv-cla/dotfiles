@@ -2,6 +2,8 @@
 
 # ~/.bash_functions
 
+[[ $- == *i* ]] && echo "> ${BASH_SOURCE[0]}"
+
 # Create a new directory and enter it
 function mcd() {
   mkdir -p "$@" && cd "$_";
@@ -48,7 +50,7 @@ function t() {
       ;;
     *)
       host="${input}"
-      tmux split-window ssh "${host}"
+      tmux split-window ssh "${host}" && tmux select-layout tiled
   esac
 }
 
@@ -90,3 +92,5 @@ colors() {
 	echo -e "Gray       \033[1;30mCOLOR_GRAY     \033[0;37mCOLOR_LIGHT_GRAY     \033[0m"
 }
 
+
+[[ $- == *i* ]] && echo "< ${BASH_SOURCE[0]}"

@@ -1,5 +1,7 @@
 # .bashrc
 
+[[ $- == *i* ]] && echo "> ${BASH_SOURCE[0]}"
+
 # Source global definitions
 if [ -f /etc/bashrc ]; then
 	. /etc/bashrc
@@ -11,12 +13,6 @@ fi
 # disable auto window naming
 DISABLE_AUTO_TITLE="true"
 export EDITOR="vim"
-
-# write bash history out every time we display a prompt
-export PROMPT_COMMAND='history -a'
-
-# add timestamp to bash_history
-export HISTTIMEFORMAT="%d/%m/%y %T "
 
 # User specific aliases and functions
 
@@ -45,3 +41,6 @@ complete -W "$(echo `cat ~/.ssh/known_hosts | cut -f 1 -d ' ' | sed -e s/,.*//g 
 
 # other autocompletes
 complete -W "+%Y%m%d_%H%M%S +%Y%m%d" date
+
+
+[[ $- == *i* ]] && echo "< ${BASH_SOURCE[0]}"
