@@ -17,21 +17,25 @@ export EDITOR="vim"
 # User specific aliases and functions
 
 # .bash_aliases
-if [ -f ~/.bash_aliases ]; then
+if [ -e ~/.bash_aliases ]; then
 	. ~/.bash_aliases
 fi
 
 # .bash_functions
-if [ -f ~/.bash_functions ]; then
+if [ -e ~/.bash_functions ]; then
 	. ~/.bash_functions
 fi
 
-
 # prompt
-if [ -f ~/.bash_prompt ]; then
+if [ -e ~/.bash_prompt ]; then
 	. ~/.bash_prompt
 fi
 
+
+# tmux bash completions
+if [ -e ~/bin/bash_completion_tmux.sh ]; then
+	. ~/bin/bash_completion_tmux.sh
+fi
 
 
 # add autocomplete for hosts found in known_hosts file

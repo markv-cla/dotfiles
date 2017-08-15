@@ -3,7 +3,7 @@
 [[ $- == *i* ]] && echo "> ${BASH_SOURCE[0]}"
 
 # Get the aliases and functions
-if [ -f ~/.bashrc ]; then
+if [ -e ~/.bashrc ]; then
 	. ~/.bashrc
 fi
 
@@ -14,7 +14,8 @@ PATH=$PATH:$HOME/.local/bin:$HOME/bin
 export PATH
 
 # switch to ~/Documents
-cd ~/Documents
+#cd ~/Documents
 
+export ANSIBLE_HOSTS=~/stuff/ansible/inventory
 
 [[ $- == *i* ]] && echo "< ${BASH_SOURCE[0]}"

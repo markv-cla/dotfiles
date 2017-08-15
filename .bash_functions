@@ -23,11 +23,11 @@ function r() {
     *\@*)
       user="${input%%\@*}"
       host="${input##*@}"
-      tmux new-window -n "${host}" ssh "${user}@${host}"
+      tmux new-window -n "${host}" "ssh ${user}@${host}"
       ;;
     *)
       host="${input}"
-      tmux new-window -n ${host} ssh "${host}"
+      tmux new-window -n ${host} "ssh ${host}"
   esac
 }
 
@@ -46,11 +46,11 @@ function t() {
     *\@*)
       user="${input%%\@*}"
       host="${input##*@}"
-      tmux split-window ssh "${user}@${host}"
+      tmux split-window "ssh ${user}@${host}"
       ;;
     *)
       host="${input}"
-      tmux split-window ssh "${host}" && tmux select-layout tiled
+      tmux split-window "ssh ${host}" && tmux select-layout tiled
   esac
 }
 
@@ -69,12 +69,12 @@ function s() {
       user="${input%%\@*}"
       host="${input##*@}"
       tmux rename-window "${host}"
-      ssh "${user}@${host}"
+      ssh ${user}@${host}
       ;;
     *)
       host="${input}"
       tmux rename-window "${host}"
-      ssh "${host}"
+      ssh ${host}
   esac
 }
 

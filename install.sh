@@ -15,6 +15,7 @@ DOTFILES+=("${DOT_SRC}/.bash_profile|${HOME}/.bash_profile")
 DOTFILES+=("${DOT_SRC}/.bashrc|${HOME}/.bashrc")
 DOTFILES+=("${DOT_SRC}/.tmux.conf|${HOME}/.tmux.conf")
 DOTFILES+=("${DOT_SRC}/.bash_prompt|${HOME}/.bash_prompt")
+DOTFILES+=("${DOT_SRC}/bin/bash_completion_tmux.sh|${HOME}/bin/bash_completion_tmux.sh")
 
 for DOTFILE in "${DOTFILES[@]}";
 do
@@ -35,6 +36,7 @@ done
 
 DIRECTORIES=()
 DIRECTORIES+=("${HOME}/.vimtmp")
+DIRECTORIES+=("${HOME}/bin")
 
 # create directories if they dont exist
 for DIRECTORY in "${DIRECTORIES[@]}";
