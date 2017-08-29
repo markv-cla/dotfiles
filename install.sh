@@ -5,6 +5,22 @@ DOT_SRC="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 export DOT_SRC
 
 
+DIRECTORIES=()
+DIRECTORIES+=("${HOME}/.vimtmp")
+DIRECTORIES+=("${HOME}/bin")
+
+# create directories if they dont exist
+for DIRECTORY in "${DIRECTORIES[@]}";
+do
+  if [ -d ${DIRECTORY} ]; 
+  then
+    echo "directory exists: ${DIRECTORY}"
+  else 
+    mkdir -v ${DIRECTORY}
+  fi
+done
+
+
 DOTFILES=()
 # format: "SOURCE|DESTINATION"
 DOTFILES+=("${DOT_SRC}/.vimrc|${HOME}/.vimrc")
@@ -34,17 +50,4 @@ do
 done
 
 
-DIRECTORIES=()
-DIRECTORIES+=("${HOME}/.vimtmp")
-DIRECTORIES+=("${HOME}/bin")
 
-# create directories if they dont exist
-for DIRECTORY in "${DIRECTORIES[@]}";
-do
-  if [ -d ${DIRECTORY} ]; 
-  then
-    echo "directory exists: ${DIRECTORY}"
-  else 
-    mkdir -v ${DIRECTORY}
-  fi
-done
