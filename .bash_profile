@@ -20,3 +20,4 @@ export PATH
 export ANSIBLE_HOSTS=~/stuff/ansible/inventory
 
 [[ $- == *i* ]] && echo "< ${BASH_SOURCE[0]}"
+

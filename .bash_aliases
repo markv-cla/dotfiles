@@ -28,5 +28,11 @@ alias week="date +%V"
 
 alias path='echo -e ${PATH//:/\\n}'
 
+alias i='~/bin/ssh_info.sh'
+alias r='~/bin/ssh_new_window.sh'
+alias s='~/bin/ssh_current_window.sh'
+alias t='~/bin/ssh_new_pane.sh'
+
+
 
 [[ $- == *i* ]] && echo "< ${BASH_SOURCE[0]}"

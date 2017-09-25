@@ -9,76 +9,6 @@ function mcd() {
   mkdir -p "$@" && cd "$_";
 }
 
-function r() {
-  # start ssh session in new window
-  if [ $# -eq 0 ] || [ $# -gt 1 ];
-  then
-    echo "usage: r [username]@hostname"
-    exit
-  fi
-
-  input="$*"
-
-  case "$*" in
-    *\@*)
-      user="${input%%\@*}"
-      host="${input##*@}"
-      tmux new-window -n "${host}" "ssh ${user}@${host}"
-      ;;
-    *)
-      host="${input}"
-      tmux new-window -n ${host} "ssh ${host}"
-  esac
-}
-
-
-function t() {
-  #  start ssh session in new split, current window
-  if [ $# -eq 0 ] || [ $# -gt 1 ];
-  then
-    echo "usage: t [username]@hostname"
-    exit
-  fi
-
-  input="$*"
-
-  case "$*" in
-    *\@*)
-      user="${input%%\@*}"
-      host="${input##*@}"
-      tmux split-window "ssh ${user}@${host}"
-      ;;
-    *)
-      host="${input}"
-      tmux split-window "ssh ${host}" && tmux select-layout tiled
-  esac
-}
-
-function s() {
-  #  start ssh session current window (set window title)
-  if [ $# -eq 0 ] || [ $# -gt 1 ];
-  then
-    echo "usage: s [username]@hostname"
-    exit
-  fi
-
-  input="$*"
-
-  case "$*" in
-    *\@*)
-      user="${input%%\@*}"
-      host="${input##*@}"
-      tmux rename-window "${host}"
-      ssh ${user}@${host}
-      ;;
-    *)
-      host="${input}"
-      tmux rename-window "${host}"
-      ssh ${host}
-  esac
-}
-
-
 colors() {
 	echo -e "No Color   \033[0mCOLOR_NC                                         \033[0m"
 	echo -e "White      \033[1;37mCOLOR_WHITE                                   \033[0m"
@@ -92,5 +22,18 @@ colors() {
 	echo -e "Gray       \033[1;30mCOLOR_GRAY     \033[0;37mCOLOR_LIGHT_GRAY     \033[0m"
 }
 
+
+known_hosts() {
+  CONTENT=$(sed -n "${LINE}p" < ${FILE} )
+  echo "Line Content: ${CONTENT:0:64}..."
+  CONTENT2=${CONTENT%%\,*}
+
+  COMMAND="sed -i -e \"${LINE}d\" ${FILE}"
+  echo running: ${COMMAND}
+  sh -c "${COMMAND}"
+
+  echo -e "----"
+  grep -n ${CONTENT2} ${FILE}
+}
 
 [[ $- == *i* ]] && echo "< ${BASH_SOURCE[0]}"
