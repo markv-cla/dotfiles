@@ -17,7 +17,7 @@ export PATH
 #cd ~/Documents
 
 
-export ANSIBLE_HOSTS=~/stuff/ansible/inventory
+export ANSIBLE_INVENTORY=~/stuff/ansible/inventory
 
 [[ $- == *i* ]] && echo "< ${BASH_SOURCE[0]}"
 

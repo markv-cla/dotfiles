@@ -33,6 +33,6 @@ alias r='~/bin/ssh_new_window.sh'
 alias s='~/bin/ssh_current_window.sh'
 alias t='~/bin/ssh_new_pane.sh'
 
-
+alias tmux="tmux attach-session -t default || tmux new-session -s default"
 
 [[ $- == *i* ]] && echo "< ${BASH_SOURCE[0]}"
