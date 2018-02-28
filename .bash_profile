@@ -17,7 +17,8 @@ export PATH
 #cd ~/Documents
 
 
-export ANSIBLE_INVENTORY=~/stuff/ansible/inventory
+export ANSIBLE_CONFIG=~/ansible/ansible.cfg
+export ANSIBLE_INVENTORY=~/ansible/inventory
 
 [[ $- == *i* ]] && echo "< ${BASH_SOURCE[0]}"
 

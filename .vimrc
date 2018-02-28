@@ -55,8 +55,9 @@ if &t_Co > 2 || has("gui_running")
   set hlsearch
 endif
 
-" turn on relative line numbering
-set relativenumber
+" turn on line numbering
+"set relativenumber
+set number
 
 " toggle relative/absolute line numbering with CTRL-n
 function! NumberToggle()

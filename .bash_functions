@@ -36,4 +36,12 @@ known_hosts() {
   grep -n ${CONTENT2} ${FILE}
 }
 
+function lazygit() {
+  set -o xtrace
+  git add .
+  git commit -a -m "$*"
+  git push
+  set +o xtrace
+}
+
 [[ $- == *i* ]] && echo "< ${BASH_SOURCE[0]}"
