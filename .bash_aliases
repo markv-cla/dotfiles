@@ -29,18 +29,16 @@ alias ipl="ifconfig | grep -Eo 'inet (addr:)?([0-9]*\.){3}[0-9]*' | grep -Eo '([
 alias quit="exit"
 alias week="date +%V"
 
-alias path='echo -e ${PATH//:/\\n}'
+alias pathl='echo -e ${PATH//:/\\n}'
 
-alias i='~/bin/ssh_info.sh'
-alias r='~/bin/mvssh.sh --action new-window --title yes --host'
-alias t='~/bin/mvssh.sh --action split-window --title no --host'
-alias s='~/bin/mvssh.sh --action current-window --title no --host'
 
 alias scp='scp -o "LogLevel=error"'
 
 alias mytmux="/usr/bin/tmux attach-session -t default || /usr/bin/tmux new-session -s default"
-alias tmuxls="/usr/bin/tmux list-sessions"
-alias tmuxks="/usr/bin/tmux kill-session -t"
+alias t='/usr/bin/tmux split-window'
+alias r='/usr/bin/tmux new-window'
+alias tls="/usr/bin/tmux list-sessions"
+alias tks="/usr/bin/tmux kill-session -t"
 
 alias a-pro=""
 alias apb="ansible-playbook --private-key ~/.ssh/ansible-id_rsa --user ansible"
