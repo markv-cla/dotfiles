@@ -31,6 +31,7 @@ alias week="date +%V"
 
 alias pathl='echo -e ${PATH//:/\\n}'
 
+alias sqlite3='sqlite3 -header -column'
 
 alias scp='scp -o "LogLevel=error"'
 
