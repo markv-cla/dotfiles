@@ -35,7 +35,7 @@ alias sqlite3='sqlite3 -header -column'
 
 alias scp='scp -o "LogLevel=error"'
 
-alias mytmux="/usr/bin/tmux attach-session -t default || /usr/bin/tmux new-session -s default"
+alias mytmux="/usr/bin/tmux attach-session -d -t default || /usr/bin/tmux new-session -s default"
 alias t='/usr/bin/tmux split-window'
 alias r='/usr/bin/tmux new-window'
 alias tls="/usr/bin/tmux list-sessions"
