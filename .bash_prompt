@@ -44,6 +44,11 @@ function _prompt_command() {
   PS1="$(_venv_prompt)$(_git_prompt)"'[\u@\h \[\e[1;34m\]\w\[\e[0m\]]\$ '
 }
 
+function _short_prompt_command() {
+  # quick set a generic prompt (makes life easier when creating documentation etc)
+  PS1="[user@host \w]\$ "
+}
+
 export PROMPT_COMMAND="_prompt_command; "
 
 [[ $- == *i* ]] && echo "< ${BASH_SOURCE[0]}"
