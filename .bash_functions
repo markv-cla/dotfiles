@@ -44,4 +44,41 @@ function lazygit() {
   set +o xtrace
 }
 
+
+function ssh {
+    local saved_args="$@"
+    local title=""
+
+    # ssh is sometimes used as part of command completion
+    # in that case setting the terminal title isn't desirable
+    # During bash completion $COMP_LINE is filled, so exclude
+    # that.
+    if [ -z "$COMP_LINE" ] ; then
+        while [[ -n "$1" && -z "$title" ]] ; do
+            local arg="$1"
+            shift
+             if [[ "$arg" =~ ^[^-] ]] ; then 
+                 title="${arg%%.*}"
+            fi
+         done
+    fi
+
+    # If a title was found, set the terminal title.
+    if [ -n "$title" ] ; then
+        printf "\033k%s\033\\" "$title"
+    fi
+
+    /usr/bin/ssh $saved_args
+    local status=$?
+
+    # ssh is done. Restore the terminal title
+    if [ -n "$title" ] ; then
+        printf "\033k%s\033\\" "$(hostname -s)"
+    fi
+
+    return $status
+}
+
+
+
 [[ $- == *i* ]] && echo "< ${BASH_SOURCE[0]}"

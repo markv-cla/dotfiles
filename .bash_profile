@@ -16,6 +16,10 @@ export PATH
 # switch to ~/Documents
 #cd ~/Documents
 
+if [[ "${TERM}" == "screen" ]] ; then
+  printf "\033k%s\033\\" "$(hostname -s)"
+fi
+
 
 export ANSIBLE_CONFIG=~/ansible/ansible.cfg
 export ANSIBLE_INVENTORY=~/ansible/inventory
