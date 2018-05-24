@@ -9,13 +9,17 @@ function _git_prompt() {
 
   if ! [[ "${git_status,,}" =~ 'not a git repo' ]]; then
     if [[ "${git_status}" =~ 'nothing to commit' ]]; then
-      local ansi=42     # BG Green
+      local ansifg=30     # Bold Black
+      local ansibg=42     # BG Green
     elif [[ "${git_status}" =~ 'Changes not staged' ]]; then
-      local ansi=41     # BG Red
+      local ansifg=37     # Bold White
+      local ansibg=41     # BG Red
     elif [[ "${git_status}" =~ 'Untracked files:' ]]; then
-      local ansi=43     # BG Yellow
+      local ansifg=37     # Bold White
+      local ansibg=43     # BG Yellow
     else
-      local ansi=45     # BG Magenta
+      local ansifg=37     # Bold White
+      local ansibg=45     # BG Magenta
     fi
 
     if [[ "${git_status}" =~ "On branch ([^[:space:]]+)" ]]; then
@@ -25,8 +29,8 @@ function _git_prompt() {
       # Detached HEAD.  (branch=HEAD is a faster alternative.)
       branch="$(git describe --all --contains --abbrev=4 HEAD 2> /dev/null || echo HEAD)"
     fi
-
-    echo -n '[\[\e[0;37;'"${ansi}"';1m\]'"${branch}"'\[\e[0m\]] '
+    # echo -n '[\[\e[0;37;'"${ansi}"';1m\]'"${branch}"'\[\e[0m\]] '
+    echo -n '[\[\e[0;'"${ansifg}"';'"${ansibg}"';1m\]'"${branch}"'\[\e[0m\]] '
 
   fi
 }
