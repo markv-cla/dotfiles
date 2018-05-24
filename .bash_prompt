@@ -44,7 +44,7 @@ function _venv_prompt () {
 }
 
 function _prompt_command() {
-  PS1="$(_venv_prompt)$(_git_prompt)"'[\u@\h \[\e[1;34m\]\w\[\e[0m\]]\$ '
+  PS1="$(_venv_prompt)$(_git_prompt)"'[\u@\h \[\e[1;34m\]\w\[\e[0m\]]\n\$ '
 }
 
 function _short_prompt_command() {
