@@ -5,10 +5,9 @@
 function _git_prompt() {
   # adapted from:
   #   http://www.opinionatedprogrammer.com/2011/01/colorful-bash-prompt-reflecting-git-status/
-
   local git_status="$(git status -unormal 2>&1)"
-  if ! [[ "${git_status}" =~ 'Not a git repo' ]]; then
 
+  if ! [[ "${git_status,,}" =~ 'not a git repo' ]]; then
     if [[ "${git_status}" =~ 'nothing to commit' ]]; then
       local ansi=42     # BG Green
     elif [[ "${git_status}" =~ 'Changes not staged' ]]; then
