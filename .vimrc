@@ -88,6 +88,8 @@ set shiftwidth=2
 " On pressing tab, insert 4 spaces
 set expandtab
 
+set nowrap
+
 
 " Most color xterms have only eight colors.  
 " If you don't get colors with the default setup, this may fix things

@@ -21,8 +21,8 @@ if [[ "${TERM}" == "screen" ]] ; then
 fi
 
 
-export ANSIBLE_CONFIG=~/ansible/ansible.cfg
-export ANSIBLE_INVENTORY=~/ansible/inventory
+export ANSIBLE_CONFIG=~/Documents/ansible/ansible.cfg
+export ANSIBLE_INVENTORY=~/Documents/ansible/inventory
 
 [[ $- == *i* ]] && echo "< ${BASH_SOURCE[0]}"
 
