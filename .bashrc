@@ -36,6 +36,11 @@ if [ -e ~/bin/bash_completion_tmux.sh ]; then
 	. ~/bin/bash_completion_tmux.sh
 fi
 
+# aws cli completions
+if [ -e $(which aws_completer) ]; then
+  complete -C "$(which aws_completer)" aws
+fi
+
 # add autocomplete for hosts found in known_hosts file
 complete -W "$(echo `cat ~/.ssh/known_hosts | cut -f 1 -d ' ' | sed -e s/,.*//g | uniq | grep -v "\["`;)" s
 
