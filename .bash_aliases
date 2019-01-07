@@ -44,5 +44,6 @@ alias tks="/usr/bin/tmux kill-session -t"
 alias a-pro=""
 alias apb="ansible-playbook --private-key ~/.ssh/ansible-id_rsa --user ansible"
 
+alias ls="ls --color"
 
 [[ $- == *i* ]] && echo "< ${BASH_SOURCE[0]}"
