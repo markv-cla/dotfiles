@@ -20,6 +20,10 @@ if [[ "${TERM}" == "screen" ]] ; then
   printf "\033k%s\033\\" "$(hostname -s)"
 fi
 
+# WSL
+if grep -qE "(Microsoft|WSL)" /proc/version &> /dev/null ; then
+  umask 022
+fi
 
 export ANSIBLE_CONFIG=~/Documents/ansible/ansible.cfg
 export ANSIBLE_INVENTORY=~/Documents/ansible/inventory
